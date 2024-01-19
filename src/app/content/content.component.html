@@ -1,0 +1,25 @@
+<!-- src/app/content/content.component.html -->
+
+<div class="container">
+  <div class="sectionA">
+    <div class="card-container">
+      <div *ngFor="let car of cars" class="card">
+        <div>{{ car.make }} {{ car.model }}</div>
+        <!-- Click to open modal -->
+        <button type="button" (click)="selectCar(car)">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div class="modal" *ngIf="selectedCar">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h3>Details</h3>
+    Make: {{ selectedCar.make }}<br>
+    Model: {{ selectedCar.model }}<br>
+    Body Type: {{ selectedCar.bodyType }}<br>
+    Color: {{ selectedCar.color }}
+  </div>
+</div>
